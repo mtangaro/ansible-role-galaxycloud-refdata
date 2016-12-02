@@ -1,2 +1,5 @@
 ---
 # defaults file for ansible-role-galaxycloud-refdata
+
+galaxy_flavor: "galaxy-no-tools"
+
