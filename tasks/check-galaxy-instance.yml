@@ -1,6 +1,6 @@
 ---
 - name: Check if Galaxy is up
-  uri: url="http://{{ galaxy_instance_url }}/galaxy/"
+  uri: url="{{ galaxy_instance_url }}"
   register: result
   until: result.status == 200
   retries: 30
