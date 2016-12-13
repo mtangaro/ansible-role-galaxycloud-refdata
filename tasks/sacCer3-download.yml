@@ -1,14 +1,19 @@
 ---
 # comment here
 
+- include_vars: sacCer3-list.yml
+
+- name: Create log directory
+  file: path={{ refdata_dir }}/sacCer3/{{ item.0.tool }}
+        state=directory
+        owner={{ galaxy_user }}
+        group={{ galaxy_user }}
+  with_subelements:
+    - "{{ sacCer3 }}"
+    - parts
+
 - name: Download Reference Data
-  get_url: url={{refdata_swift_storage_url}}/{{item.genome}}/{{item.tool}}/{{item.part}}
-  with_items:
-    - { genome: 'sacCer3', tool: 'bowtie-index', part: 'sacCer3.1.ebwt' }
-    - { genome: 'sacCer3', tool: 'bowtie-index', part: 'sacCer3.2.ebwt' }
-    - { genome: 'sacCer3', tool: 'bowtie-index', part: 'sacCer3.3.ebwt' }
-    - { genome: 'sacCer3', tool: 'bowtie-index', part: 'sacCer3.4.ebwt' }
-    - { genome: 'sacCer3', tool: 'bowtie-index', part: 'sacCer3.rev.1.ebwt' }
-    - { genome: 'sacCer3', tool: 'bowtie-index', part: 'sacCer3.rev.2.ebwt' }
-
-
+  get_url: url={{refdata_swift_storage_url}}/sacCer3/{{ item.0.tool }}/{{item.1.part}} dest={{refdata_dir}}/sacCer3/{{item.0.tool}}
+  with_subelements:
+    - "{{ sacCer3 }}"
+    - parts
