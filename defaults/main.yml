@@ -10,7 +10,7 @@ galaxy_tools_base_dir: "/tmp/venv"
 
 #---
 # Path
-refdata: "/refdata"
+refdata_dir: "/refdata"
 
 #---
 # Genome http address (INDIGO_CNR ReCaS Bari Swift container)
