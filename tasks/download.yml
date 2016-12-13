@@ -1,1 +1,8 @@
 ---
+- name: Download hg19
+  include: hg19-download.yml
+  when: hg19
+
+- name: Download sacCer3
+  include: sacCer3-download.yml
+  when: sacCer3
