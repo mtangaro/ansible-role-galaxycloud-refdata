@@ -1,0 +1,14 @@
+---
+# comment here
+
+- name: Download Reference Data
+  get_url: url={{refdata_swift_storage_url}}/{{item.genome}}/{{item.tool}}/{{item.part}}
+  with_items:
+    - { genome: 'hg19', tool: 'bowtie-index', part: 'hg19.1.ebwt' }
+    - { genome: 'hg19', tool: 'bowtie-index', part: 'hg19.2.ebwt' }
+    - { genome: 'hg19', tool: 'bowtie-index', part: 'hg19.3.ebwt' }
+    - { genome: 'hg19', tool: 'bowtie-index', part: 'hg19.4.ebwt' }
+    - { genome: 'hg19', tool: 'bowtie-index', part: 'hg19.rev.1.ebwt' }
+    - { genome: 'hg19', tool: 'bowtie-index', part: 'hg19.rev.2.ebwt' }
+
+

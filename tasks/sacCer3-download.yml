@@ -1,0 +1,14 @@
+---
+# comment here
+
+- name: Download Reference Data
+  get_url: url={{refdata_swift_storage_url}}/{{item.genome}}/{{item.tool}}/{{item.part}}
+  with_items:
+    - { genome: 'sacCer3', tool: 'bowtie-index', part: 'sacCer3.1.ebwt' }
+    - { genome: 'sacCer3', tool: 'bowtie-index', part: 'sacCer3.2.ebwt' }
+    - { genome: 'sacCer3', tool: 'bowtie-index', part: 'sacCer3.3.ebwt' }
+    - { genome: 'sacCer3', tool: 'bowtie-index', part: 'sacCer3.4.ebwt' }
+    - { genome: 'sacCer3', tool: 'bowtie-index', part: 'sacCer3.rev.1.ebwt' }
+    - { genome: 'sacCer3', tool: 'bowtie-index', part: 'sacCer3.rev.2.ebwt' }
+
+
