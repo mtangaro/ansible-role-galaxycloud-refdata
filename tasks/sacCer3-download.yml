@@ -3,7 +3,7 @@
 
 - include_vars: sacCer3-list.yml
 
-- name: Create log directory
+- name: Create sacCer3 directory
   file: path={{ refdata_dir }}/sacCer3/{{ item.0.tool }}
         state=directory
         owner={{ galaxy_user }}

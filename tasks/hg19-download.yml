@@ -1,14 +1,19 @@
 ---
 # comment here
 
+- include_vars: hg19-list.yml
+
+- name: Create hg19 directory
+  file: path={{ refdata_dir }}/hg19/{{ item.0.tool }}
+        state=directory
+        owner={{ galaxy_user }}
+        group={{ galaxy_user }}
+  with_subelements:
+    - "{{ hg19 }}"
+    - parts
+
 - name: Download Reference Data
-  get_url: url={{refdata_swift_storage_url}}/{{item.genome}}/{{item.tool}}/{{item.part}}
-  with_items:
-    - { genome: 'hg19', tool: 'bowtie-index', part: 'hg19.1.ebwt' }
-    - { genome: 'hg19', tool: 'bowtie-index', part: 'hg19.2.ebwt' }
-    - { genome: 'hg19', tool: 'bowtie-index', part: 'hg19.3.ebwt' }
-    - { genome: 'hg19', tool: 'bowtie-index', part: 'hg19.4.ebwt' }
-    - { genome: 'hg19', tool: 'bowtie-index', part: 'hg19.rev.1.ebwt' }
-    - { genome: 'hg19', tool: 'bowtie-index', part: 'hg19.rev.2.ebwt' }
-
-
+  get_url: url={{refdata_swift_storage_url}}/hg19/{{ item.0.tool }}/{{item.1.part}} dest={{refdata_dir}}/hg19/{{item.0.tool}}
+  with_subelements:
+    - "{{ hg19 }}"
+    - parts
