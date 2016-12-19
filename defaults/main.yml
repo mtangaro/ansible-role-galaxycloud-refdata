@@ -1,8 +1,36 @@
 ---
 # defaults file for ansible-role-galaxycloud-refdata
-galaxy_user: galaxy
-galaxy_flavor: "galaxy-no-tools"
+
+#######################
+# Galaxy instance
 galaxy_instance_url: "http://{{ansible_default_ipv4.address}}/galaxy/"
+
+# A list of yml files that list the reference data to be installed.
+galaxy_refdata_list_files: [ "refdata_list.yaml" ]
+
+#######################
+# Galaxy info same as indigo-dc.galaxycloud ansible role
+
+# User to launch the Galaxy portal
+galaxy_user: galaxy
+
+# Galaxy user UID
+GALAXY_UID: "4001"
+
+# Path to install the Galaxy software
+galaxy_FS_path: /home/galaxy
+
+# Galaxy directory (usually galaxy or galaxy-dist)
+galaxy_directory: galaxy
+
+# Galaxy install path
+galaxy_install_path: "{{galaxy_FS_path}}/{{galaxy_directory}}"
+
+# Virtualenv directory
+galaxy_venv_path: "{{galaxy_install_path}}/.venv"
+
+
+#######################
 
 #---
 # Ephemeris
@@ -12,9 +40,12 @@ galaxy_tools_base_dir: "/tmp/venv"
 # Path
 refdata_dir: "/refdata"
 
+glaxy_refdata_list_path: "/tmp"
+
 #---
 # Genome http address (INDIGO_CNR ReCaS Bari Swift container)
 get_refdata_from_swift_storage: true # This should be false by default. Use OneData
+
 refdata_swift_storage_url: "http://cloud.recas.ba.infn.it:8080/v1/AUTH_3b4918e0a982493e8c3ebcc43586a2a8/test_ref"
 
 #---
@@ -24,7 +55,7 @@ at9: "false" # A. thaliana (TAIR 9)
 dm2: "false" # D. melanogaster (dm2)
 dm3: "false" # D. melanogaster (dm3)
 hg18: "false" # H. sapiens (hg18)
-hg19: "true" # H. sapiens (hg19)
+hg19: "false" # H. sapiens (hg19)
 hg38: "false" # H. sapeins (hg38)
 mm10: "false" # M. musculus (mm10)
 mm8: "false" # M. musculus (mm9)
