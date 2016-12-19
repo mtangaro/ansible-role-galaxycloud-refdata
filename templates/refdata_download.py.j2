@@ -9,6 +9,7 @@ import urllib2
 
 REFDATA_ROOT_DIR="{{refdata_dir}}"
 GALAXY_USER="{{galaxy_user}}"
+LOG_FILENAME = "{{galaxy_refdata_list_path}}/refdata_download.log"
 
 def parse_cli_options():
   parser = argparse.ArgumentParser(description='Download Reference Data', formatter_class=argparse.RawTextHelpFormatter)
@@ -19,6 +20,10 @@ def load_input_file(refdata_list_file = "genome-list.yml"):
   with open(refdata_list_file, 'r') as fi:
     li = yaml.load(fi)
   return li
+
+def clear_log(log):
+  with open(log, 'w'):
+    pass
 
 def create_dir(dirpath = 'directory_path'):
   if not os.path.exists(dirpath):
@@ -31,9 +36,26 @@ def write_data(name, url):
   with open(name, "wb") as code:
     code.write(data)
 
+def write_data(name, url):
+  out = 'Downloading: ' + url
+  logging.debug(out)
+  try: 
+    response = urllib2.urlopen(url)
+    data = response.read()
+    with open(name, "wb") as code:
+      code.write(data)
+  except (urllib2.HTTPError):
+    logging.debug('WARNING: Reference Genome NOT FOUND. SKIPPING!!!')
+    pass
+
 def download():
   options = parse_cli_options()
   li = load_input_file(options.genome_list)
+
+  clear_log(LOG_FILENAME)
+  logging.basicConfig(filename=LOG_FILENAME,level=logging.DEBUG)
+  logging.debug('>>> Reference Data download log file.')
+
   #print li
   create_dir(REFDATA_ROOT_DIR)
   recas_url='http://cloud.recas.ba.infn.it:8080/v1/AUTH_3b4918e0a982493e8c3ebcc43586a2a8/test_ref'
