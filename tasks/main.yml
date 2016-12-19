@@ -8,5 +8,5 @@
   when: galaxy_installed.stat.exists
 
 - name: Configure Reference Data
-  include: refdata-install.yml
+  include: install.yml
   when: galaxy_installed.stat.exists
