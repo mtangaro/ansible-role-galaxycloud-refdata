@@ -35,7 +35,7 @@ galaxy_venv_path: "{{galaxy_install_path}}/.venv"
 
 #---
 # Ephemeris
-galaxy_tools_base_dir: "/tmp/venv"
+galaxy_tools_base_dir: "/tmp"
 
 #---
 # Path
