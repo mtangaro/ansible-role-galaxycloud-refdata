@@ -10,9 +10,9 @@
     #- hg19-list.yml
 
 - name: Download reference data
-  command: '{{galaxy_venv_path}}/bin/python /usr/local/bin/refdata_download.py -i /tmp/{{item}}'
+  command: '{{galaxy_venv_path}}/bin/python /usr/local/bin/refdata_download.py -i {{galaxy_refdata_list_path}}/{{item}}'
   environment:
     VIRTUAL_ENV: "{{galaxy_venv_path}}"
   with_items:
-    - "{{galaxy_refdata_list_path}}/sacCer3-list.yml"
+    - "sacCer3-list.yml"
     #- "{{galaxy_refdata_list_path}}/hg19-list.yml"
