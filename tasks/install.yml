@@ -1,6 +1,7 @@
 ---
 - name: Download Reference Data
-  include: download.yml
+  include: refdata-download.yml
+  when: refdata_download
 
 - name: Install Ephemeris
   include: ephemeris-install.yml

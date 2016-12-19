@@ -6,6 +6,7 @@
 galaxy_instance_url: "http://{{ansible_default_ipv4.address}}/galaxy/"
 
 # A list of yml files that list the reference data to be installed.
+refdata_download: "true"
 galaxy_refdata_list_files: [ "refdata_list.yaml" ]
 
 #######################
