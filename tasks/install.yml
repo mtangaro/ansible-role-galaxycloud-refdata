@@ -1,3 +1,6 @@
 ---
 - name: Download Reference Data
   include: download.yml
+
+- name: Install Ephemeris
+  include: ephemeris-install.yml
