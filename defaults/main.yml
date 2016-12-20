@@ -46,6 +46,8 @@ refdata_dir: "/refdata"
 
 galaxy_refdata_list_path: "/tmp"
 
+galaxy_tool_data_table_conf_path: "{{galaxy_install_path}}/tool-data"
+
 #---
 # Genome http address (INDIGO_CNR ReCaS Bari Swift container)
 get_refdata_from_swift_storage: true # This should be false by default. Use OneData
