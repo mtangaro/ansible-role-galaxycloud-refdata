@@ -1,12 +1,4 @@
 ---
-- name: Create/invoke script virtualenv
-  pip: name={{ item }} virtualenv={{ galaxy_tools_base_dir }}/venv virtualenv_command="{{ pip_virtualenv_command | default( 'virtualenv' ) }}"
-  with_items:
-    - ephemeris==0.4.0
-
-- name: Get installed tool list
-  command: '{{ galaxy_tools_base_dir }}/venv/bin/get-tool-list -g {{ galaxy_instance_url }} -o {{ galaxy_refdata_list_path}}/installed-tool-list.yml' 
-
 - name: Create tool_data_conf.xml file
   copy: src={{galaxy_config_path}}/tool_data_table_conf.xml.sample dest={{galaxy_config_path}}/tool_data_table_conf.xml remote_src=true
 
@@ -14,8 +6,17 @@
   set_fact:
     contents: "{{ lookup('template', 'add_tool_data_table_conf.xml.j2') }}"
 
-- blockinfile:
+- name: Add Reference Genome to tool_data_table_conf.xml
+  blockinfile:
     dest: "{{galaxy_config_path}}/tool_data_table_conf.xml"
     marker: "<!-- {mark} ELIXIR-ITA customization-->"
     insertbefore: "</tables>"
     block: "{{contents}}"
+
+- name: Add loc files
+  template: src={{ item.j2_file }} dest={{galaxy_tool_data_table_conf_path}}/{{ item.loc_file }}
+  with_items:
+    - { j2_file: "bowtie_indices.loc.j2", loc_file: "bowtie_indices.loc" }
+    - { j2_file: "fasta_indexes.loc.j2", loc_file: "fasta_indexes.loc" }
+  notify:
+    - restart galaxy
