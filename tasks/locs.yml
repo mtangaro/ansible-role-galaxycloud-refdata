@@ -5,7 +5,7 @@
     - ephemeris==0.4.0
 
 - name: Get installed tool list
-  command: '{{ galaxy_tools_base_dir }}/venv/bin/get_tool_list -g {{ galaxy_instance_url }} -o {{ galaxy_refdata_list_path}}/installed-tool-list.yml' 
+  command: '{{ galaxy_tools_base_dir }}/venv/bin/get-tool-list -g {{ galaxy_instance_url }} -o {{ galaxy_refdata_list_path}}/installed-tool-list.yml' 
 
 - name: Create tool_data_conf.xml file
   copy: src={{galaxy_config_path}}/tool_data_table_conf.xml.sample dest={{galaxy_config_path}}/tool_data_table_conf.xml remote_src=true

@@ -5,3 +5,6 @@
 
 - name: Install Ephemeris
   include: ephemeris-install.yml
+
+- name: Let Galaxy be aware of reference data
+  include: locs.yml
