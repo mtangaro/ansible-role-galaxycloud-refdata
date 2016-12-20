@@ -3,8 +3,8 @@
   include: refdata-download.yml
   when: refdata_download
 
-- name: Install Ephemeris
-  include: ephemeris-install.yml
+- name: Get installed tools list
+  include: get-installed-tools-list.yml
 
 - name: Let Galaxy be aware of reference data
   include: locs.yml
