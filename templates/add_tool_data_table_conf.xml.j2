@@ -1,11 +1,3 @@
-<!-- Use the file tool_data_table_conf.xml.oldlocstyle if you don't want to update your loc files as changed in revision 4550:535d276c92bc-->
-<!-- File created for ELIXIR-ITA in INDIGO use case -->
-<tables>
-    <!-- Available liftOver chain file -->
-    <table name="liftOver" comment_char="#" allow_duplicate_entries="False">
-        <columns>dbkey, name, value</columns>
-        <file path="tool-data/liftOver.loc" />
-    </table>
     <!-- Locations of indexes in the Bowtie mapper format -->
     <table name="bowtie_indexes" comment_char="#">
         <columns>value, dbkey, name, path</columns>
@@ -26,18 +18,8 @@
         <columns>value, dbkey, name, path</columns>
         <file path="tool-data/bowtie2_indices.loc" />
     </table>
-    <!-- Locations of indexes in the BWA mapper format -->
-    <table name="bwa_indexes" comment_char="#">
-        <columns>value, dbkey, name, path</columns>
-        <file path="tool-data/bwa_index.loc" />
-    </table>
-    <!-- Locations of indexes in the BWA color-space mapper format -->
-    <table name="bwa_indexes_color" comment_char="#">
-        <columns>value, dbkey, name, path</columns>
-        <file path="tool-data/bwa_index_color.loc" />
-    </table>
+    <!-- Locations of fasta indexes -->
     <table name="fasta_indexes" comment_char="#">
         <columns>value, dbkey, name, path</columns>
         <file path="tool-data/fasta_indexes.loc" />
     </table>
-</tables>
