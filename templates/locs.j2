@@ -1,28 +1,31 @@
-
+<!-- Use the file tool_data_table_conf.xml.oldlocstyle if you don't want to update your loc files as changed in revision 4550:535d276c92bc-->
+<!-- File created for ELIXIR-ITA in INDIGO use case -->
+<tables>
+    <!-- Available liftOver chain file -->
+    <table name="liftOver" comment_char="#" allow_duplicate_entries="False">
+        <columns>dbkey, name, value</columns>
+        <file path="tool-data/liftOver.loc" />
+    </table>
     <!-- Locations of indexes in the Bowtie mapper format -->
     <table name="bowtie_indexes" comment_char="#">
         <columns>value, dbkey, name, path</columns>
         <file path="tool-data/bowtie_indices.loc" />
     </table>
-
     <!-- Locations of indexes in the Bowtie mapper format for TopHat to use -->
     <table name="tophat_indexes" comment_char="#">
         <columns>value, dbkey, name, path</columns>
         <file path="tool-data/bowtie_indices.loc" />
     </table>
-
     <!-- Locations of indexes in the Bowtie2 mapper format -->
     <table name="bowtie2_indexes" comment_char="#">
         <columns>value, dbkey, name, path</columns>
         <file path="tool-data/bowtie2_indices.loc" />
     </table>
-
     <!-- Locations of indexes in the Bowtie2 mapper format for TopHat2 to use -->
     <table name="tophat2_indexes" comment_char="#">
         <columns>value, dbkey, name, path</columns>
         <file path="tool-data/bowtie2_indices.loc" />
     </table>
-
     <!-- Locations of indexes in the BWA mapper format -->
     <table name="bwa_indexes" comment_char="#">
         <columns>value, dbkey, name, path</columns>
@@ -33,9 +36,8 @@
         <columns>value, dbkey, name, path</columns>
         <file path="tool-data/bwa_index_color.loc" />
     </table>
-
     <table name="fasta_indexes" comment_char="#">
         <columns>value, dbkey, name, path</columns>
         <file path="tool-data/fasta_indexes.loc" />
     </table>
-
+</tables>
