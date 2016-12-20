@@ -9,3 +9,13 @@
 
 - name: Create tool_data_conf.xml file
   copy: src={{galaxy_config_path}}/tool_data_table_conf.xml.sample dest={{galaxy_config_path}}/tool_data_table_conf.xml remote_src=true
+
+- name: set fact  
+  set_fact:
+    contents: "{{ lookup('template', 'add_tool_data_table_conf.xml.j2') }}"
+
+- blockinfile:
+    dest: "{{galaxy_config_path}}/tool_data_table_conf.xml"
+    marker: "<!-- {mark} ELIXIR-ITA customization-->"
+    insertbefore: "</tables>"
+    block: "{{contents}}"
