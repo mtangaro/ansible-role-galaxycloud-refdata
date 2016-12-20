@@ -12,6 +12,8 @@
     marker: "<!-- {mark} ELIXIR-ITA customization-->"
     insertbefore: "</tables>"
     block: "{{contents}}"
+  notify:
+    - restart galaxy
 
 - name: Add loc files
   template: src={{ item.j2_file }} dest={{galaxy_tool_data_table_conf_path}}/{{ item.loc_file }}
