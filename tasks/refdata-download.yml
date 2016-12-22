@@ -1,5 +1,13 @@
 ---
 
+- name: Create log directory
+  file: path={{ refdata_dir }}/{ refdata_onedata_space_name }}
+        state=directory
+        owner={{ galaxy_user }}
+        group={{ galaxy_user }}
+  become_user: root
+  become_method: sudo
+
 - name: Copy ref_data_download.py
   template: src=refdata_download.py.j2 dest=/tmp/refdata_download.py mode=a+x
 

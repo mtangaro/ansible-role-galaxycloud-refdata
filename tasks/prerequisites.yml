@@ -1,4 +1,6 @@
 ---
+# Create directories for reference data and logs
+
 - name: Create log directory
   file: path={{refdata_log_path}}
         state=directory

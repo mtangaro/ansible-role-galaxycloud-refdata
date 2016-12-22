@@ -8,9 +8,9 @@ import yaml
 import urllib2
 import logging
 
-REFDATA_ROOT_DIR="{{refdata_dir}}"
-GALAXY_USER="{{galaxy_user}}"
-LOG_FILENAME = "{{galaxy_refdata_list_path}}/refdata_download.log"
+REFDATA_ROOT_DIR="{{ refdata_dir }}/{{ refdata_onedata_space_name }}"
+GALAXY_USER="{{ galaxy_user }}"
+LOG_FILENAME = "{{ refdata_log_path }}/refdata_download.log"
 
 def parse_cli_options():
   parser = argparse.ArgumentParser(description='Download Reference Data', formatter_class=argparse.RawTextHelpFormatter)
