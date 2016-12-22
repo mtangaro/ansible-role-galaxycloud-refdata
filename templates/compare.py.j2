@@ -9,9 +9,9 @@ import sys
 
 def parse_cli_options():
   parser = argparse.ArgumentParser(description='Download Reference Data', formatter_class=argparse.RawTextHelpFormatter)
-  parser.add_argument( '-i', dest='galaxy_instance_tools_list', help='')
-  parser.add_argument( '-f', dest='galaxy_flavor_tools_list', help='')
-  parser.add_argument( '-o', dest='output', help='')
+  parser.add_argument( '-i', dest='galaxy_instance_tool_list', help='')
+  parser.add_argument( '-f', dest='galaxy_flavor_tool_list', help='')
+  parser.add_argument( '-o', dest='output', default='/tmp/galaxy-missing-tool-list.yml', help='')
   return parser.parse_args()
 
 def load_input_file(refdata_list_file = "list.yml"):
@@ -57,10 +57,10 @@ def compare():
 
     #---
     # Get Galaxy flavor tools list (expected tools)
-    flavor_dict = load_input_file(options.galaxy_flavor_tools_list)
+    flavor_dict = load_input_file(options.galaxy_flavor_tool_list)
     
     # Get Galaxy instance tools list (installed tools)
-    instance_list = load_input_file(options.galaxy_instance_tools_list)
+    instance_list = load_input_file(options.galaxy_instance_tool_list)
     
     fout = open(options.output,'w')
     
