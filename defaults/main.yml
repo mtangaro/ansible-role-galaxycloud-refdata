@@ -53,6 +53,8 @@ oneprovider_url: "cdmi-indigo.recas.ba.infn.it"
 
 refdata_onedata_token: "MDAxNWxvY2F00aW9uIG9uZXpvbmUKMDAzYmlkZW500aWZpZXIgbVVfYjRpZUt4WGZtbVBWMG0000QjhURzNPUEJhdVJFS3NybGduU00ZGYWkwbwowMDFhY2lkIHRpbWUgPCAxNTEzOTQxMjc3CjAwMmZzaWduYXR1cmUgNZ00sfBXZuuS3Q7I00A02qNe4rWw6lAWPJdYpor46u6Q7AK"
 
+refdata_onedata_space_name: "galaxy_reference_data"
+
 #######################
 # Path
 
