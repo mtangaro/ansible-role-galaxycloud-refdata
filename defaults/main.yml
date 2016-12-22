@@ -40,11 +40,9 @@ galaxy_flavor: "galaxy-no-tools"
 #######################
 # Configuration
 
-get_refdata_from_swift_storage: false  # This should be false by default. Use OneData
+get_refdata_from_swift_storage: true  # This should be false by default. Use OneData
 
-get_refdata_from_onedata: true
-
-refdata_log_path: "/var/log/refdata"
+get_refdata_from_onedata: false
 
 #######################
 # OneData configuration
@@ -70,9 +68,10 @@ galaxy_refdata_list_path: "/tmp"
 
 galaxy_tool_data_table_conf_path: "{{galaxy_install_path}}/tool-data"
 
+refdata_log_path: "/var/log/refdata"
+
 #---
 # Genome http address (INDIGO_CNR ReCaS Bari Swift container)
-
 refdata_swift_storage_url: "http://cloud.recas.ba.infn.it:8080/v1/AUTH_3b4918e0a982493e8c3ebcc43586a2a8/test_ref"
 
 #---
