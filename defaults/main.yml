@@ -34,6 +34,10 @@ galaxy_venv_path: "{{galaxy_install_path}}/.venv"
 galaxy_config_path: "{{galaxy_install_path}}/config"
 galaxy_config_file: "{{galaxy_config_path}}/galaxy.ini"
 
+# Galaxy flavor
+galaxy_flavor: "galaxy-no-tools"
+
+
 #######################
 
 #---
