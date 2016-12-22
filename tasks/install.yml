@@ -4,7 +4,7 @@
   when: refdata_download
 
 - name: Get installed tools list
-  include: get-installed-tools-list.yml
+  include: get-missing-tools-list.yml
 
 - name: Let Galaxy be aware of reference data
   include: locs.yml
