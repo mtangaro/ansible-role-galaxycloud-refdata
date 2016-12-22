@@ -1,7 +1,13 @@
 ---
+- include: prerequisites.yml
+
+- name: Mount ONEDATA Reference Data Space
+  include: onedata.yml
+  when: get_refdata_from_onedata
+
 - name: Download Reference Data
   include: refdata-download.yml
-  when: refdata_download
+  when: get_refdata_from_swift_storage
 
 - name: Get installed tools list
   include: get-missing-tools-list.yml

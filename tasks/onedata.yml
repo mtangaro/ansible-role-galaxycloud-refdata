@@ -1,0 +1,7 @@
+---
+- name: Copy compare.py script
+  template: src=connect.sh.j2 dest=/tmp/connect.sh mode=a+x
+
+- name: Connect to ONEDATA Reference Data space
+  shell: '/tmp/connect.sh > {{ refdata_log_path }}/refdata_connection.log'
+  ignore_errors: true

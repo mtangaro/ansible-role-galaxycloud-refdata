@@ -1,0 +1,17 @@
+---
+- name: Create log directory
+  file: path={{refdata_log_path}}
+        state=directory
+        owner={{galaxy_user}}
+        group={{galaxy_user}}
+  become_user: root
+  become_method: sudo
+
+- name: Create reference data directory
+  file: path={{refdata_dir}}
+        state=directory
+        owner={{galaxy_user}}
+        group={{galaxy_user}}
+  become_user: root
+  become_method: sudo
+
