@@ -1,7 +1,7 @@
 ---
 
 - name: Copy ref_data_download.py
-  template: src=refdata_download.py.j2 dest=/usr/local/bin/refdata_download.py mode=a+x
+  template: src=refdata_download.py.j2 dest=/tmp/refdata_download.py mode=a+x
 
 - name: Copy genome lists
   copy: src="{{item}}" dest="{{galaxy_refdata_list_path}}"
@@ -10,9 +10,9 @@
     #- hg19-list.yml
 
 - name: Download reference data
-  command: '{{galaxy_venv_path}}/bin/python /usr/local/bin/refdata_download.py -i {{galaxy_refdata_list_path}}/{{item}}'
+  command: '{{galaxy_venv_path}}/bin/python /tmp/refdata_download.py -i {{galaxy_refdata_list_path}}/{{item}}'
   environment:
     VIRTUAL_ENV: "{{galaxy_venv_path}}"
   with_items:
     - "sacCer3-list.yml"
-    #- "{{galaxy_refdata_list_path}}/hg19-list.yml"
+    #- "hg19-list.yml"
