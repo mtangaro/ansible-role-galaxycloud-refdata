@@ -3,7 +3,7 @@
 
 - name: Get installed tools list
   include: get-missing-tools-list.yml
-  when: {{ galaxy_flavor }} != "galaxy-no-tools"
+  when: galaxy_flavor != "galaxy-no-tools"
 
 - name: Mount ONEDATA Reference Data Space
   include: onedata.yml
