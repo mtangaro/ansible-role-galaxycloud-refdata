@@ -1,6 +1,10 @@
 ---
 - include: prerequisites.yml
 
+- name: Get installed tools list
+  include: get-missing-tools-list.yml
+  when: {{ galaxy_flavor }} != "galaxy-no-tools"
+
 - name: Mount ONEDATA Reference Data Space
   include: onedata.yml
   when: get_refdata_from_onedata
@@ -8,9 +12,6 @@
 - name: Download Reference Data
   include: refdata-download.yml
   when: get_refdata_from_swift_storage
-
-- name: Get installed tools list
-  include: get-missing-tools-list.yml
 
 - name: Let Galaxy be aware of reference data
   include: locs.yml
