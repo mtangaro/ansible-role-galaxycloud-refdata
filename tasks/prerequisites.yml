@@ -2,18 +2,12 @@
 # Create directories for reference data and logs
 
 - name: Create log directory
-  file: path={{refdata_log_path}}
+  file: path={{ item }}
         state=directory
-        owner={{galaxy_user}}
-        group={{galaxy_user}}
+        owner={{ galaxy_user }}
+        group={{ galaxy_user }}
+  when_items:
+    - '{{ refdata_log_path }}'
+    - '{{ refdata_dir }}'
   become_user: root
   become_method: sudo
-
-- name: Create reference data directory
-  file: path={{refdata_dir}}
-        state=directory
-        owner={{galaxy_user}}
-        group={{galaxy_user}}
-  become_user: root
-  become_method: sudo
-

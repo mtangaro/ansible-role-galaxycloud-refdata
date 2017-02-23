@@ -1,6 +1,6 @@
 ---
-- name: Create log directory
-  file: path={{ refdata_dir }}/{{ refdata_onedata_space_name }}
+- name: Create refdata directory
+  file: path={{ refdata_dir }}/{{ refdata_onedata_space_name }} # consistency with onedata space name
         state=directory
         owner={{ galaxy_user }}
         group={{ galaxy_user }}
