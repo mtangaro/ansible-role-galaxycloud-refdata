@@ -1,12 +1,12 @@
 ---
 # Create directories for reference data and logs
 
-- name: Create log directory
+- name: Create directories
   file: path={{ item }}
         state=directory
         owner={{ galaxy_user }}
         group={{ galaxy_user }}
-  when_items:
+  with_items:
     - '{{ refdata_log_path }}'
     - '{{ refdata_dir }}'
   become_user: root
